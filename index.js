@@ -91,7 +91,7 @@ function parseUnread() {
           var attributes = null;
 
           parser.on("end", function(mail) {
-            if (!self.mailParserOptions.streamAttachments) {
+            /*if (!self.mailParserOptions.streamAttachments) {
               async.each(mail.attachments, function( attachment, callback) {
                 fs.writeFile(self.attachmentOptions.directory + attachment.generatedFileName, attachment.content, function(err) {
                   if(err) {
@@ -108,8 +108,9 @@ function parseUnread() {
                 callback()
               });
             } else {
+                */
               self.emit('mail',mail,seqno,attributes);
-            }
+            //}
           });
           parser.on("attachment", function (attachment) {
             self.emit('attachment', attachment);
